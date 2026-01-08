@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManipulatorAI - Detect Manipulative Messages</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ManipulatorAI</h1>
+            <p>Advanced Pattern Recognition for Communication Analysis</p>
+            <div class="header-subtitle">
+                Powered by sophisticated linguistic algorithms to detect manipulation patterns in written communication
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <button class="nav-tab active" data-tab="home">Home</button>
+            <button class="nav-tab" data-tab="learn">Learn About Manipulation</button>
+            <button class="nav-tab" data-tab="history">Conversation History</button>
+            <button class="nav-tab" data-tab="profile">Profile</button>
+        </nav>
+
+        <main>
+            <!-- Home Tab -->
+            <section id="home-tab" class="tab-content active">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <div class="impact-stats">
+                            <div class="stat-highlight">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Manipulation Tactics Detected</div>
+                            </div>
+                            <div class="stat-highlight">
+                                <div class="stat-number">AI-Powered</div>
+                                <div class="stat-label">Pattern Recognition</div>
+                            </div>
+                            <div class="stat-highlight">
+                                <div class="stat-number">Instant</div>
+                                <div class="stat-label">Analysis Results</div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-headline">
+                            <h2>Uncover Hidden Manipulation</h2>
+                            <h3>in Any Message</h3>
+                            <p class="hero-subtitle">Advanced AI instantly analyzes communication patterns to reveal psychological manipulation tactics, emotional triggers, and power imbalances.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-section-bold">
+                    <div class="input-header">
+                        <h3>🔥 Start Your Analysis Now</h3>
+                        <p>Paste any message, email, or conversation below. Our AI will reveal manipulation patterns in seconds.</p>
+                    </div>
+                    
+                    <div class="input-container">
+                        <div class="input-glow-wrapper">
+                            <textarea 
+                                id="message-input" 
+                                placeholder="Paste your message here... (ex: texts, emails, social media posts, workplace communications)"
+                                rows="8"
+                                class="bold-textarea"
+                            ></textarea>
+                            <div class="input-focus-ring"></div>
+                        </div>
+                        
+                        <div class="analyze-section">
+                            <button id="analyze-btn" class="super-analyze-button">
+                                <div class="btn-bg-effect"></div>
+                                <span class="btn-content">
+                                    <span class="btn-icon">⚡</span>
+                                    <span class="btn-text">ANALYZE FOR MANIPULATION</span>
+                                    <span class="btn-arrow">→</span>
+                                </span>
+                            </button>
+                            <div class="analyze-promise">
+                                ✨ <strong>Free Analysis</strong> • Results in 3 seconds • 100% Private
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <span class="trust-icon">🛡️</span>
+                            <span>Your messages stay private</span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-icon">🧠</span>
+                            <span>Advanced AI analysis</span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-icon">⚡</span>
+                            <span>Instant results</span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-icon">📊</span>
+                            <span>15+ manipulation patterns</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>See What Our Analysis Reveals:</h3>
+                    <div class="preview-grid">
+                        <div class="preview-card">
+                            <div class="preview-icon">🎯</div>
+                            <h4>Guilt Manipulation</h4>
+                            <p>"After everything I've done for you..."</p>
+                        </div>
+                        <div class="preview-card">
+                            <div class="preview-icon">💭</div>
+                            <h4>Gaslighting Patterns</h4>
+                            <p>"You're being too sensitive..."</p>
+                        </div>
+                        <div class="preview-card">
+                            <div class="preview-icon">🔒</div>
+                            <h4>Control Tactics</h4>
+                            <p>"You can't go there without me..."</p>
+                        </div>
+                        <div class="preview-card">
+                            <div class="preview-icon">⚠️</div>
+                            <h4>Emotional Blackmail</h4>
+                            <p>"I'll hurt myself if you leave..."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="results-section" class="results-section hidden">
+                    <h2>Analysis Results</h2>
+                    <div id="results-content"></div>
+                    <div id="neutral-response" class="neutral-response hidden">
+                        <h3>Suggested Neutral Response</h3>
+                        <div id="response-content"></div>
+                    </div>
+                </div>
+
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Analyzing message...</p>
+                </div>
+            </section>
+
+            <!-- Learn Tab -->
+            <section id="learn-tab" class="tab-content">
+                <h2>Understanding Communication Patterns</h2>
+                <p>Learn to recognize manipulation patterns through advanced linguistic analysis. Our system identifies over 15 distinct manipulation tactics by analyzing word patterns, emotional pressure points, and communication structures.</p>
+                
+                <div class="pattern-analysis-info">
+                    <div class="analysis-feature">
+                        <div class="feature-icon">🧠</div>
+                        <div class="feature-content">
+                            <h4>Psychological Pattern Recognition</h4>
+                            <p>Advanced algorithms detect emotional manipulation techniques and psychological pressure tactics</p>
+                        </div>
+                    </div>
+                    <div class="analysis-feature">
+                        <div class="feature-icon">📝</div>
+                        <div class="feature-content">
+                            <h4>Linguistic Structure Analysis</h4>
+                            <p>Examines sentence construction, word choice, and communication flow for manipulation indicators</p>
+                        </div>
+                    </div>
+                    <div class="analysis-feature">
+                        <div class="feature-icon">⚖️</div>
+                        <div class="feature-content">
+                            <h4>Power Dynamic Detection</h4>
+                            <p>Identifies language patterns that create imbalanced power dynamics in relationships</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tactics-grid">
+                    <div class="tactic-card">
+                        <h3>Gaslighting Patterns</h3>
+                        <p><strong>Pattern Analysis:</strong> Systematic reality distortion through memory invalidation.</p>
+                        <p><strong>Key Indicators:</strong> "That never happened," "You're too sensitive," "You're imagining things."</p>
+                        <p><strong>Psychological Impact:</strong> Creates dependency on manipulator's version of reality through engineered self-doubt.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Guilt Manipulation</h3>
+                        <p><strong>Pattern Analysis:</strong> Emotional leverage through obligation and sacrifice narratives.</p>
+                        <p><strong>Key Indicators:</strong> "After everything I've done," "You're so ungrateful," "How could you?"</p>
+                        <p><strong>Psychological Impact:</strong> Exploits empathy to override personal boundaries and autonomy.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Isolation Patterns</h3>
+                        <p><strong>Pattern Analysis:</strong> Strategic separation from support networks through relationship undermining.</p>
+                        <p><strong>Key Indicators:</strong> "They don't understand you," "I'm the only one," "Your friends are toxic."</p>
+                        <p><strong>Psychological Impact:</strong> Creates information control and emotional dependency.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Love Bombing</h3>
+                        <p><strong>Pattern Analysis:</strong> Overwhelming positive attention to create rapid emotional attachment.</p>
+                        <p><strong>Key Indicators:</strong> "You're perfect," "Soulmates," "Never felt this way before."</p>
+                        <p><strong>Psychological Impact:</strong> Establishes deep emotional hooks before revealing controlling behavior.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Threat Patterns</h3>
+                        <p><strong>Pattern Analysis:</strong> Fear-based compliance through consequence escalation.</p>
+                        <p><strong>Key Indicators:</strong> "You'll regret this," "I'll ruin you," "No one will believe you."</p>
+                        <p><strong>Psychological Impact:</strong> Creates learned helplessness through intimidation tactics.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Minimization Patterns</h3>
+                        <p><strong>Pattern Analysis:</strong> Experience invalidation to avoid accountability.</p>
+                        <p><strong>Key Indicators:</strong> "You're overreacting," "Not that bad," "Stop being dramatic."</p>
+                        <p><strong>Psychological Impact:</strong> Erodes confidence in personal judgment and emotional validity.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Control Patterns</h3>
+                        <p><strong>Pattern Analysis:</strong> Autonomy restriction through monitoring and permission-seeking.</p>
+                        <p><strong>Key Indicators:</strong> "Show me your phone," "You can't," "Need my permission."</p>
+                        <p><strong>Psychological Impact:</strong> Creates learned dependency and reduced self-efficacy.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Blame Shifting</h3>
+                        <p><strong>Pattern Analysis:</strong> Responsibility deflection through victim attribution.</p>
+                        <p><strong>Key Indicators:</strong> "You made me," "Your fault," "Look what you made me do."</p>
+                        <p><strong>Psychological Impact:</strong> Reverses victim-perpetrator dynamics to avoid consequences.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Emotional Blackmail</h3>
+                        <p><strong>Pattern Analysis:</strong> Extreme consequence threats to manipulate decisions.</p>
+                        <p><strong>Key Indicators:</strong> "I'll hurt myself if," "Can't live without you," "You're killing me."</p>
+                        <p><strong>Psychological Impact:</strong> Creates false responsibility for another's emotional regulation.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Triangulation</h3>
+                        <p><strong>Pattern Analysis:</strong> Third-party involvement to create artificial consensus.</p>
+                        <p><strong>Key Indicators:</strong> "Everyone agrees with me," "Others think you're wrong," "Nobody likes when you."</p>
+                        <p><strong>Psychological Impact:</strong> Creates social isolation and self-doubt through perceived group rejection.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Silent Treatment</h3>
+                        <p><strong>Pattern Analysis:</strong> Communication withdrawal as punishment mechanism.</p>
+                        <p><strong>Key Indicators:</strong> "Not talking to you," "Whatever," "Figure it out yourself."</p>
+                        <p><strong>Psychological Impact:</strong> Exploits attachment needs to force compliance through emotional abandonment.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Financial Control</h3>
+                        <p><strong>Pattern Analysis:</strong> Economic dependency creation for behavioral control.</p>
+                        <p><strong>Key Indicators:</strong> "I control the money," "Can't afford," "You'd be broke without me."</p>
+                        <p><strong>Psychological Impact:</strong> Creates survival-level dependency that overrides personal agency.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Future Faking</h3>
+                        <p><strong>Pattern Analysis:</strong> False promise patterns to maintain current control.</p>
+                        <p><strong>Key Indicators:</strong> "When we get married," "Things will be different," "Someday we'll."</p>
+                        <p><strong>Psychological Impact:</strong> Sustains hope to prevent present-moment decision making.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Projection Patterns</h3>
+                        <p><strong>Pattern Analysis:</strong> Self-trait attribution to deflect personal accountability.</p>
+                        <p><strong>Key Indicators:</strong> "You're the one who," "You always," "You're the manipulative one."</p>
+                        <p><strong>Psychological Impact:</strong> Creates confusion about responsibility and personal traits.</p>
+                    </div>
+
+                    <div class="tactic-card">
+                        <h3>Word Salad/Circular Logic</h3>
+                        <p><strong>Pattern Analysis:</strong> Deliberate confusion tactics to avoid direct confrontation.</p>
+                        <p><strong>Key Indicators:</strong> "That's not the point," "You don't understand," "Not what I meant."</p>
+                        <p><strong>Psychological Impact:</strong> Creates cognitive overload to prevent effective communication.</p>
+                    </div>
+                </div>
+
+                <div class="help-resources">
+                    <h3>Getting Help</h3>
+                    <p>If you recognize these patterns in your relationships, remember:</p>
+                    <ul>
+                        <li>Trust your instincts - if something feels wrong, it probably is</li>
+                        <li>Document incidents to help validate your experiences</li>
+                        <li>Reach out to trusted friends, family, or professional counselors</li>
+                        <li>Consider contacting domestic violence resources if you feel unsafe</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- History Tab -->
+            <section id="history-tab" class="tab-content">
+                <h2>Conversation History</h2>
+                <div id="auth-required" class="auth-prompt hidden">
+                    <div class="auth-card">
+                        <h3>Sign In Required</h3>
+                        <p>Please sign in to view your conversation history and track your analyses.</p>
+                        <button id="sign-in-btn" class="auth-button">Sign In with Google</button>
+                    </div>
+                </div>
+                
+                <div id="history-content" class="hidden">
+                    <div class="usage-stats">
+                        <div class="stat-card">
+                            <h3>Usage Statistics</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-number" id="total-analyses">0</span>
+                                    <span class="stat-label">Total Analyses</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="free-remaining">5</span>
+                                    <span class="stat-label">Free Uses Left</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="tactics-detected">0</span>
+                                    <span class="stat-label">Tactics Detected</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="upgrade-prompt" class="upgrade-card hidden">
+                            <h3>Unlock Unlimited Access</h3>
+                            <p>You've used all your free analyses. Choose a plan to continue:</p>
+                            <div class="pricing-options">
+                                <button class="price-btn" data-plan="monthly">
+                                    <div class="price">$2.00/month</div>
+                                    <div class="plan-label">Monthly Plan</div>
+                                </button>
+                                <button class="price-btn featured" data-plan="lifetime">
+                                    <div class="price">$30.00</div>
+                                    <div class="plan-label">Lifetime Access</div>
+                                    <div class="savings">Best Value!</div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conversations-list">
+                        <h3>Past Conversations</h3>
+                        <div id="conversations-container">
+                            <div class="empty-state">
+                                <p>No conversations yet. Start by analyzing a message!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Tab -->
+            <section id="profile-tab" class="tab-content">
+                <h2>Your Profile</h2>
+                <div id="profile-signed-out" class="auth-prompt">
+                    <div class="auth-card">
+                        <h3>Sign In to Access Your Profile</h3>
+                        <p>Sign in to view your account details, subscription status, and personalized settings.</p>
+                        <button id="profile-sign-in-btn" class="auth-button">Sign In with Google</button>
+                    </div>
+                </div>
+
+                <div id="profile-content" class="profile-content hidden">
+                    <div class="profile-section">
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                <div id="user-avatar-img"></div>
+                            </div>
+                            <div class="user-details">
+                                <h3 id="user-name">Loading...</h3>
+                                <p id="user-email">Loading...</p>
+                                <span id="subscription-status" class="status-badge">Free Plan</span>
+                            </div>
+                            <button id="sign-out-btn" class="sign-out-button">Sign Out</button>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3>Subscription</h3>
+                        <div id="subscription-details">
+                            <div class="subscription-info">
+                                <p>Current Plan: <strong id="current-plan">Free (5 analyses)</strong></p>
+                                <p>Status: <strong id="plan-status">Active</strong></p>
+                            </div>
+                            <button id="manage-subscription" class="manage-btn hidden">Manage Subscription</button>
+                            <button id="upgrade-subscription" class="upgrade-btn">Upgrade Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3>Settings</h3>
+                        <div class="setting-item">
+                            <label for="auto-suggest">
+                                <input type="checkbox" id="auto-suggest" checked>
+                                Auto-suggest neutral responses
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="detailed-analysis">
+                                <input type="checkbox" id="detailed-analysis">
+                                Show detailed analysis explanations
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="save-history">
+                                <input type="checkbox" id="save-history" checked>
+                                Save conversation history
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3>Privacy & Security</h3>
+                        <div class="privacy-note">
+                            <strong>Privacy First:</strong> Message analysis happens locally in your browser. 
+                            Only conversation summaries are saved to track your usage history.
+                        </div>
+                        <button id="clear-history" class="danger-btn">Clear All History</button>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3>About ManipulatorAI</h3>
+                        <p>ManipulatorAI is designed to help people recognize potential manipulation in messages. 
+                        While our analysis can identify common patterns, always trust your instincts and seek 
+                        professional help if you feel unsafe.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Advanced Pattern Recognition</h4>
+                    <p>Sophisticated linguistic algorithms analyze communication patterns locally in your browser. No data is transmitted or stored on external servers.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Privacy-First Analysis</h4>
+                    <p>All pattern detection happens on your device. Only conversation summaries are saved for your usage tracking and history.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Powered by AI</h4>
+                    <p>Our pattern recognition technology continuously evolves to detect emerging manipulation techniques and communication patterns.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Choose Your Plan</h3>
+            <p>You've used all your free analyses. Select a plan to continue:</p>
+            <div class="payment-options">
+                <div class="payment-option" data-plan="monthly">
+                    <h4>Monthly Plan</h4>
+                    <div class="price-large">$2.00/month</div>
+                    <ul>
+                        <li>Unlimited analyses</li>
+                        <li>Conversation history</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <button class="payment-btn" data-plan="monthly">Choose Monthly</button>
+                </div>
+                <div class="payment-option featured" data-plan="lifetime">
+                    <div class="best-value">Best Value!</div>
+                    <h4>Lifetime Access</h4>
+                    <div class="price-large">$30.00</div>
+                    <div class="savings-text">Save $90+ vs monthly</div>
+                    <ul>
+                        <li>Unlimited analyses forever</li>
+                        <li>Conversation history</li>
+                        <li>Priority support</li>
+                        <li>Future feature updates</li>
+                    </ul>
+                    <button class="payment-btn featured" data-plan="lifetime">Choose Lifetime</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal hidden">
+        <div class="modal-content auth-modal">
+            <span class="close-modal">&times;</span>
+            <h3>Sign In Required</h3>
+            <p>To continue using ManipulatorAI and track your conversation history, please sign in:</p>
+            <button id="google-sign-in" class="auth-button">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Continue with Google
+            </button>
+            <div class="auth-benefits">
+                <h4>Benefits of signing in:</h4>
+                <ul>
+                    <li>Track conversation history</li>
+                    <li>Sync across devices</li>
+                    <li>Manage subscription</li>
+                    <li>Personalized insights</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
