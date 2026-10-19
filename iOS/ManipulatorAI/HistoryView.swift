@@ -1,4 +1,6 @@
 import SwiftUI
+import AuthenticationServices
+import CryptoKit
 
 struct HistoryView: View {
     @EnvironmentObject var viewModel: ManipulatorAIViewModel
@@ -64,10 +66,10 @@ struct AuthRequiredView: View {
                 
                 Button(action: onSignInTap) {
                     HStack(spacing: 12) {
-                        Image(systemName: "person.crop.circle.badge.plus")
+                        Image(systemName: "envelope.fill")
                             .font(.system(size: 18, weight: .semibold))
-                        
-                        Text("Sign In with Google")
+
+                        Text("Sign In")
                             .font(.system(size: 16, weight: .semibold))
                     }
                     .foregroundColor(.white)
@@ -420,99 +422,208 @@ struct ConversationCard: View {
 struct AuthenticationSheet: View {
     @EnvironmentObject var viewModel: ManipulatorAIViewModel
     @Environment(\.presentationMode) var presentationMode
-    
+    @State private var email = ""
+    @State private var password = ""
+    @State private var isSignUp = false
+    @State private var currentNonce: String?
+
     var body: some View {
         NavigationView {
-            VStack(spacing: 32) {
-                Spacer()
-                
-                // Header
-                VStack(spacing: 16) {
-                    Image(systemName: "person.crop.circle.badge.plus")
-                        .font(.system(size: 60))
-                        .foregroundColor(Color("PrimaryBlue"))
-                    
-                    VStack(spacing: 8) {
-                        Text("Sign In Required")
+            ScrollView {
+                VStack(spacing: 24) {
+                    // Header
+                    VStack(spacing: 12) {
+                        Image(systemName: "person.crop.circle.badge.plus")
+                            .font(.system(size: 60))
+                            .foregroundColor(Color("PrimaryBlue"))
+
+                        Text(isSignUp ? "Create Account" : "Sign In")
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.primary)
-                        
-                        Text("To continue using ManipulatorAI and track your conversation history, please sign in:")
+
+                        Text("To continue using ManipulatorAI and track your conversation history.")
                             .font(.system(size: 16, weight: .medium))
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 20)
                     }
-                }
-                
-                // Sign In Button
-                Button(action: signIn) {
-                    HStack(spacing: 12) {
-                        // Google Logo placeholder
-                        Circle()
-                            .fill(.white)
-                            .frame(width: 20, height: 20)
-                            .overlay(
-                                Text("G")
-                                    .font(.system(size: 12, weight: .bold))
-                                    .foregroundColor(Color("PrimaryBlue"))
-                            )
-                        
-                        Text("Continue with Google")
-                            .font(.system(size: 16, weight: .semibold))
+                    .padding(.top, 24)
+
+                    // Email / Password form
+                    VStack(spacing: 16) {
+                        TextField("Email", text: $email)
+                            .textContentType(.emailAddress)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+
+                        SecureField("Password", text: $password)
+                            .textContentType(isSignUp ? .newPassword : .password)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 24)
+
+                    // Error display
+                    if let error = viewModel.authError {
+                        Text(error)
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundColor(Color("DangerRed"))
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 24)
+                    }
+
+                    // Submit button
+                    Button(action: submitEmailPassword) {
+                        Group {
+                            if viewModel.isAuthLoading {
+                                ProgressView()
+                                    .tint(.white)
+                            } else {
+                                Text(isSignUp ? "Create Account" : "Sign In")
+                                    .font(.system(size: 16, weight: .semibold))
+                            }
+                        }
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color("PrimaryBlue"))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .shadow(color: Color("PrimaryBlue").opacity(0.3), radius: 8, x: 0, y: 4)
+                    }
+                    .disabled(viewModel.isAuthLoading)
+                    .padding(.horizontal, 24)
+
+                    // Toggle sign-in / sign-up
+                    Button(action: { isSignUp.toggle(); viewModel.authError = nil }) {
+                        Text(isSignUp ? "Already have an account? Sign In" : "Don't have an account? Sign Up")
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundColor(Color("PrimaryBlue"))
+                    }
+
+                    // Divider
+                    HStack {
+                        Rectangle().fill(Color(.systemGray4)).frame(height: 1)
+                        Text("or")
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundColor(.secondary)
+                        Rectangle().fill(Color(.systemGray4)).frame(height: 1)
+                    }
+                    .padding(.horizontal, 24)
+
+                    // Sign in with Apple
+                    SignInWithAppleButton(.signIn) { request in
+                        let nonce = randomNonceString()
+                        currentNonce = nonce
+                        request.requestedScopes = [.email, .fullName]
+                        request.nonce = sha256(nonce)
+                    } onCompletion: { result in
+                        handleAppleSignIn(result)
+                    }
+                    .signInWithAppleButtonStyle(.black)
                     .frame(height: 50)
-                    .background(Color("GoogleBlue"))
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .shadow(color: Color("GoogleBlue").opacity(0.3), radius: 8, x: 0, y: 4)
-                }
-                .padding(.horizontal, 40)
-                
-                Spacer()
-                
-                // Benefits
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("Benefits of signing in:")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.primary)
-                    
-                    VStack(alignment: .leading, spacing: 12) {
-                        BenefitItem(icon: "clock.arrow.circlepath", text: "Track conversation history")
-                        BenefitItem(icon: "icloud.and.arrow.up", text: "Sync across devices")
-                        BenefitItem(icon: "creditcard.circle", text: "Manage subscription")
-                        BenefitItem(icon: "chart.line.uptrend.xyaxis", text: "Personalized insights")
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .padding(.horizontal, 24)
+
+                    // Benefits
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text("Benefits of signing in:")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.primary)
+
+                        VStack(alignment: .leading, spacing: 12) {
+                            BenefitItem(icon: "clock.arrow.circlepath", text: "Track conversation history")
+                            BenefitItem(icon: "icloud.and.arrow.up", text: "Sync across devices")
+                            BenefitItem(icon: "creditcard.circle", text: "Manage subscription")
+                            BenefitItem(icon: "chart.line.uptrend.xyaxis", text: "Personalized insights")
+                        }
                     }
+                    .padding(24)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color(.systemGray6))
+                    )
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 40)
                 }
-                .padding(24)
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color(.systemGray6))
-                )
-                .padding(.horizontal, 20)
-                .padding(.bottom, 40)
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(
-                trailing: Button("Cancel") {
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Cancel") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            }
+            .onChange(of: viewModel.currentUser) { newValue in
+                if newValue != nil {
                     presentationMode.wrappedValue.dismiss()
                 }
-            )
+            }
         }
     }
-    
-    private func signIn() {
-        // Simulate sign in
-        let mockUser = User(
-            id: "demo_user_\(Date().timeIntervalSince1970)",
-            name: "Demo User",
-            email: "demo@example.com"
-        )
-        
-        viewModel.currentUser = mockUser
-        presentationMode.wrappedValue.dismiss()
+
+    private func submitEmailPassword() {
+        if isSignUp {
+            viewModel.signUp(email: email, password: password)
+        } else {
+            viewModel.signIn(email: email, password: password)
+        }
+    }
+
+    private func handleAppleSignIn(_ result: Result<ASAuthorization, Error>) {
+        switch result {
+        case .success(let authorization):
+            guard let appleCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
+                  let identityToken = appleCredential.identityToken,
+                  let tokenString = String(data: identityToken, encoding: .utf8),
+                  let nonce = currentNonce else {
+                viewModel.authError = "Failed to get Apple ID credentials."
+                return
+            }
+
+            // Capture the user's name (only available on first sign-in)
+            if let fullName = appleCredential.fullName {
+                let name = [fullName.givenName, fullName.familyName]
+                    .compactMap { $0 }
+                    .joined(separator: " ")
+                if !name.isEmpty {
+                    UserDefaults.standard.set(name, forKey: "appleUserFullName")
+                }
+            }
+
+            viewModel.signInWithApple(idToken: tokenString, nonce: nonce)
+
+        case .failure(let error):
+            // ASAuthorizationError.canceled means user dismissed the dialog — not a real error
+            if (error as NSError).code != ASAuthorizationError.canceled.rawValue {
+                viewModel.authError = error.localizedDescription
+            }
+        }
+    }
+
+    // MARK: - Nonce helpers
+
+    private func randomNonceString(length: Int = 32) -> String {
+        precondition(length > 0)
+        var randomBytes = [UInt8](repeating: 0, count: length)
+        let errorCode = SecRandomCopyBytes(kSecRandomDefault, randomBytes.count, &randomBytes)
+        if errorCode != errSecSuccess {
+            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+        }
+        let charset: [Character] = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        return String(randomBytes.map { charset[Int($0) % charset.count] })
+    }
+
+    private func sha256(_ input: String) -> String {
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        return hashedData.compactMap { String(format: "%02x", $0) }.joined()
     }
 }
 

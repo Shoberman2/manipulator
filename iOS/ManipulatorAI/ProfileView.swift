@@ -80,24 +80,18 @@ struct ProfileSignInView: View {
                 
                 Button(action: onSignInTap) {
                     HStack(spacing: 12) {
-                        Circle()
-                            .fill(.white)
-                            .frame(width: 20, height: 20)
-                            .overlay(
-                                Text("G")
-                                    .font(.system(size: 12, weight: .bold))
-                                    .foregroundColor(Color("PrimaryBlue"))
-                            )
-                        
-                        Text("Sign In with Google")
+                        Image(systemName: "envelope.fill")
+                            .font(.system(size: 18, weight: .semibold))
+
+                        Text("Sign In")
                             .font(.system(size: 16, weight: .semibold))
                     }
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .background(Color("GoogleBlue"))
+                    .background(Color("PrimaryBlue"))
                     .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .shadow(color: Color("GoogleBlue").opacity(0.3), radius: 8, x: 0, y: 4)
+                    .shadow(color: Color("PrimaryBlue").opacity(0.3), radius: 8, x: 0, y: 4)
                 }
                 .padding(.horizontal, 40)
             }
@@ -215,7 +209,7 @@ struct UserInfoSection: View {
     }
     
     private func signOut() {
-        viewModel.currentUser = nil
+        viewModel.signOut()
         viewModel.subscriptionStatus = .free
     }
 }

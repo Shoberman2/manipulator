@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		047A3C43E22C931AA938A6A8 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC557CA53530522629A2A7 /* HistoryView.swift */; };
+		170C0D0AF73D4B8CE6B86E86 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6452C7741F8EEFAC30F7D16B /* LearnView.swift */; };
+		419B2A7179F4015C369B2F23 /* ManipulatorAIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBBD5E65A4B65790E514AFC /* ManipulatorAIViewModel.swift */; };
+		6511C628FD17CC1114EE0186 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7820C917071CC73369E8BFB0 /* Supabase */; };
+		8F9D7715B74C12A882455886 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B76FCA3D5668702FC0FE2 /* HomeView.swift */; };
+		90B285CF5ABAAB159C916357 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8806D4EAA2A65D415A218592 /* ProfileView.swift */; };
+		BCC0EC6A56EB5CD0187D6C58 /* SupabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF154F82127A85D56F02536 /* SupabaseClient.swift */; };
+		CDEE074B13C9717B7AB414F3 /* ManipulatorAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD53C39174BC6003CB8E9E8 /* ManipulatorAIApp.swift */; };
+		DC0828E7387226C4957A109A /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73806C7D103AADBEE13A832C /* ResultsView.swift */; };
+		F0F584CC948CA3416DD31D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D0AE78A8ED583AB779E131C /* Assets.xcassets */; };
+		FF11533BDCF0275D2B91302C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0823F1BBB7D2F1F05C439C68 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0823F1BBB7D2F1F05C439C68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		08AC557CA53530522629A2A7 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		08F73D9312542405CCAB95D1 /* ManipulatorAI.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ManipulatorAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18EE29FF1FB7AF98637BACFC /* ManipulatorAI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManipulatorAI.entitlements; sourceTree = "<group>"; };
+		2F3B76FCA3D5668702FC0FE2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3D0AE78A8ED583AB779E131C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4FF154F82127A85D56F02536 /* SupabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseClient.swift; sourceTree = "<group>"; };
+		6452C7741F8EEFAC30F7D16B /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		73806C7D103AADBEE13A832C /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		8806D4EAA2A65D415A218592 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		ABBBD5E65A4B65790E514AFC /* ManipulatorAIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManipulatorAIViewModel.swift; sourceTree = "<group>"; };
+		ACD53C39174BC6003CB8E9E8 /* ManipulatorAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManipulatorAIApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17CE827CD3963850990C322F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6511C628FD17CC1114EE0186 /* Supabase in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		534AA19F0868517831A57198 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08F73D9312542405CCAB95D1 /* ManipulatorAI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6272907BA70D7A97BB31964B = {
+			isa = PBXGroup;
+			children = (
+				89CABA22B148083569EB490B /* ManipulatorAI */,
+				534AA19F0868517831A57198 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89CABA22B148083569EB490B /* ManipulatorAI */ = {
+			isa = PBXGroup;
+			children = (
+				3D0AE78A8ED583AB779E131C /* Assets.xcassets */,
+				0823F1BBB7D2F1F05C439C68 /* ContentView.swift */,
+				08AC557CA53530522629A2A7 /* HistoryView.swift */,
+				2F3B76FCA3D5668702FC0FE2 /* HomeView.swift */,
+				6452C7741F8EEFAC30F7D16B /* LearnView.swift */,
+				18EE29FF1FB7AF98637BACFC /* ManipulatorAI.entitlements */,
+				ACD53C39174BC6003CB8E9E8 /* ManipulatorAIApp.swift */,
+				ABBBD5E65A4B65790E514AFC /* ManipulatorAIViewModel.swift */,
+				8806D4EAA2A65D415A218592 /* ProfileView.swift */,
+				73806C7D103AADBEE13A832C /* ResultsView.swift */,
+				4FF154F82127A85D56F02536 /* SupabaseClient.swift */,
+			);
+			path = ManipulatorAI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71213441FA876F65CE10EE6D /* ManipulatorAI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE08BEB7A41FD8AC6EEC2E8C /* Build configuration list for PBXNativeTarget "ManipulatorAI" */;
+			buildPhases = (
+				957230F2E53BE9C2263700EB /* Sources */,
+				F5D70ADDCB50D0898FF2DB46 /* Resources */,
+				17CE827CD3963850990C322F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ManipulatorAI;
+			packageProductDependencies = (
+				7820C917071CC73369E8BFB0 /* Supabase */,
+			);
+			productName = ManipulatorAI;
+			productReference = 08F73D9312542405CCAB95D1 /* ManipulatorAI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1A1F715BB6EE54B09479491 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 0FA0DFA8713AAAA530D1B01B /* Build configuration list for PBXProject "ManipulatorAI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6272907BA70D7A97BB31964B;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				007A10DE2D7A5E3F58C89BEE /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71213441FA876F65CE10EE6D /* ManipulatorAI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5D70ADDCB50D0898FF2DB46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F584CC948CA3416DD31D4F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		957230F2E53BE9C2263700EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF11533BDCF0275D2B91302C /* ContentView.swift in Sources */,
+				047A3C43E22C931AA938A6A8 /* HistoryView.swift in Sources */,
+				8F9D7715B74C12A882455886 /* HomeView.swift in Sources */,
+				170C0D0AF73D4B8CE6B86E86 /* LearnView.swift in Sources */,
+				CDEE074B13C9717B7AB414F3 /* ManipulatorAIApp.swift in Sources */,
+				419B2A7179F4015C369B2F23 /* ManipulatorAIViewModel.swift in Sources */,
+				90B285CF5ABAAB159C916357 /* ProfileView.swift in Sources */,
+				DC0828E7387226C4957A109A /* ResultsView.swift in Sources */,
+				BCC0EC6A56EB5CD0187D6C58 /* SupabaseClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		16C0A37958C9C0447DF9FFE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ManipulatorAI/ManipulatorAI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manipulatorai.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8613D5C874F7650F0BF62A48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ManipulatorAI/ManipulatorAI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manipulatorai.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A5ED16A064DF241FD65224A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		E4DC82B32C3BE82798E58D7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0FA0DFA8713AAAA530D1B01B /* Build configuration list for PBXProject "ManipulatorAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5ED16A064DF241FD65224A0 /* Debug */,
+				E4DC82B32C3BE82798E58D7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BE08BEB7A41FD8AC6EEC2E8C /* Build configuration list for PBXNativeTarget "ManipulatorAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16C0A37958C9C0447DF9FFE2 /* Debug */,
+				8613D5C874F7650F0BF62A48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		007A10DE2D7A5E3F58C89BEE /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7820C917071CC73369E8BFB0 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 007A10DE2D7A5E3F58C89BEE /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B1A1F715BB6EE54B09479491 /* Project object */;
+}

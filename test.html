@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ManipulatorAI - Detection Tests</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; padding: 40px 20px; }
+        h1 { text-align: center; margin-bottom: 8px; font-size: 1.5rem; }
+        .subtitle { text-align: center; color: #86868b; margin-bottom: 32px; }
+        .results-summary { text-align: center; margin-bottom: 24px; font-size: 1.1rem; font-weight: 600; }
+        .pass-count { color: #34c759; }
+        .fail-count { color: #ff3b30; }
+        table { width: 100%; max-width: 960px; margin: 0 auto; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+        th { background: #1d1d1f; color: #fff; text-align: left; padding: 12px 16px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 12px 16px; border-bottom: 1px solid #f2f2f7; font-size: 0.9rem; vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        .pass { color: #34c759; font-weight: 600; }
+        .fail { color: #ff3b30; font-weight: 600; }
+        .msg { color: #1d1d1f; max-width: 360px; }
+        .expected { color: #6e6e73; }
+        .got { color: #3a3a3f; }
+    </style>
+</head>
+<body>
+    <h1>ManipulatorAI Detection Tests</h1>
+    <p class="subtitle">20 test sentences — verifying correct tactic detection</p>
+    <div id="summary" class="results-summary"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Sentence</th>
+                <th>Expected Tactic</th>
+                <th>Detected</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody id="test-body"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+    <script>
+        const testCases = [
+            {
+                input: "You're crazy if you think that actually happened.",
+                expected: "Gaslighting"
+            },
+            {
+                input: "After everything I've done for you, this is how you repay me?",
+                expected: "Guilt Tripping"
+            },
+            {
+                input: "Your friends don't really care about you like I do.",
+                expected: "Isolation Tactics"
+            },
+            {
+                input: "We're soulmates, I've never felt this way before about anyone.",
+                expected: "Love Bombing"
+            },
+            {
+                input: "If you leave, you'll regret this for the rest of your life.",
+                expected: "Threats & Intimidation"
+            },
+            {
+                input: "You're making a big deal out of nothing, stop overreacting.",
+                expected: "Minimizing & Dismissing"
+            },
+            {
+                input: "Show me your phone right now, I need to know who you're talking to.",
+                expected: "Control & Monitoring"
+            },
+            {
+                input: "This is all because of you, you made me do it.",
+                expected: "Blame Shifting"
+            },
+            {
+                input: "I'll hurt myself if you leave me, you're all I have.",
+                expected: "Emotional Blackmail"
+            },
+            {
+                input: "Everyone agrees with me that you're wrong about this.",
+                expected: "Triangulation"
+            },
+            {
+                input: "I'm not talking to you, figure it out yourself.",
+                expected: "Silent Treatment"
+            },
+            {
+                input: "Without me you'd be broke, I pay for everything around here.",
+                expected: "Financial Control"
+            },
+            {
+                input: "You're embarrassing yourself, people are laughing at you.",
+                expected: "Public Humiliation"
+            },
+            {
+                input: "Things will be different when we get married, I promise next time.",
+                expected: "Future Faking"
+            },
+            {
+                input: "You're the one who always starts these arguments, you never listen.",
+                expected: "Projection"
+            },
+            {
+                input: "That's not the point, you're twisting my words again.",
+                expected: "Word Salad / Circular Arguments"
+            },
+            {
+                input: "I had a really productive meeting today at work.",
+                expected: null
+            },
+            {
+                input: "Want to grab dinner tonight? I was thinking Italian.",
+                expected: null
+            },
+            {
+                input: "You're too sensitive, I never said that, you're imagining things.",
+                expected: "Gaslighting"
+            },
+            {
+                input: "If you really cared about me you would stay, how could you do this to me?",
+                expected: "Guilt Tripping"
+            }
+        ];
+
+        // Reuse the same detection logic from script.js
+        function detectTacticsForTest(message) {
+            const detected = [];
+            for (const [key, tactic] of Object.entries(manipulativeTactics)) {
+                for (const pattern of tactic.patterns) {
+                    pattern.lastIndex = 0;
+                }
+                if (tactic.patterns.some(p => { p.lastIndex = 0; return p.test(message); })) {
+                    detected.push(tactic.name);
+                }
+            }
+            return detected;
+        }
+
+        let passed = 0;
+        let failed = 0;
+        const tbody = document.getElementById('test-body');
+
+        testCases.forEach((tc, i) => {
+            const detected = detectTacticsForTest(tc.input);
+            const detectedStr = detected.length > 0 ? detected.join(', ') : 'None';
+            const expectedStr = tc.expected || 'None';
+
+            let isPass;
+            if (tc.expected === null) {
+                // Clean message — should detect nothing (or only very broad matches)
+                isPass = detected.length === 0;
+            } else {
+                isPass = detected.includes(tc.expected);
+            }
+
+            if (isPass) passed++; else failed++;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${i + 1}</td>
+                <td class="msg">${tc.input}</td>
+                <td class="expected">${expectedStr}</td>
+                <td class="got">${detectedStr}</td>
+                <td class="${isPass ? 'pass' : 'fail'}">${isPass ? 'PASS' : 'FAIL'}</td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        document.getElementById('summary').innerHTML =
+            `<span class="pass-count">${passed} passed</span> &nbsp;/&nbsp; <span class="fail-count">${failed} failed</span> &nbsp;out of ${testCases.length} tests`;
+    </script>
+</body>
+</html>

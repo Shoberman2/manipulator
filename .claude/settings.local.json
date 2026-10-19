@@ -7,7 +7,15 @@
       "Bash(git add:*)",
       "Bash(gh auth:*)",
       "Bash(mkdir:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(node test.js:*)",
+      "Bash(xcode-select:*)",
+      "Bash(xcodebuild:*)",
+      "Bash(xcodegen:*)",
+      "Bash(brew install:*)",
+      "WebSearch",
+      "WebFetch(domain:supabase.com)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": []
   }

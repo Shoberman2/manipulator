@@ -248,7 +248,7 @@ struct InputSectionView: View {
                             
                             Text("ANALYZE FOR MANIPULATION")
                                 .font(.system(size: 16, weight: .black))
-                                .letterSpacing(0.5)
+                                .tracking(0.5)
                             
                             Text("→")
                                 .font(.system(size: 20, weight: .bold))
